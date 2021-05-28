@@ -1,0 +1,9 @@
+# Created by pytest automatically.
+.pytest_cache/CACHEDIR.TAG
+.idea/
+.pytest_cache
+venv/
+.git
+__pycache__
+__init__.py
+v
