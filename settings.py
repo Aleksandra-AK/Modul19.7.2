@@ -3,3 +3,5 @@ valid_password = "1crooka2"
 invalid_email = "afaru"
 invalid_password = "12"
 invalid_auth_key = {'key': '564654'}
+empty_email = ''
+empty_password = ''
