@@ -3,10 +3,23 @@ from requests_toolbelt.multipart.encoder import MultipartEncoder
 import requests
 
 
+def log_wrapper(func):
+    def log_func(self, *args):
+        res = func(self, *args)
+        with open('log.txt', 'a', encoding='utf8') as log_file:
+            log_file.write(f'{func.__name__}, {res[1].keys()}')
+            log_file.write(f'{len(args)} headers: {args[0:]}, path parametrs: {args[2:]}')
+            log_file.write(f'string parametrs: {args}, body: {args}######')
+            log_file.write(f'######response: [arg5], response body: [arg6]\n')
+        return res
+    return log_func
+
+
 class PetFriends:
     def __init__(self):
         self.base_url = "https://petfriends1.herokuapp.com/"
 
+    @log_wrapper
     def get_api_key(self, email, password):
         """Метод делает запрос к API сервера и возвращает статус запроса и результат в формате
                JSON с уникальным ключем пользователя, найденного по указанным email и паролем"""
@@ -24,6 +37,7 @@ class PetFriends:
             result = res.text
         return status, result
 
+    @log_wrapper
     def get_list_of_pets(self, auth_key: json, filter: str = "") -> json:
         """Метод делает запрос к API сервера и возвращает статус запроса и результат в формате JSON
                 со списком наденных питомцев, совпадающих с фильтром. На данный момент фильтр может иметь
@@ -39,7 +53,7 @@ class PetFriends:
         except json.decoder.JSONDecodeError:
             result = res.text
         return status, result
-
+    @log_wrapper
     def add_new_pet(self, auth_key: json, name: str, animal_type: str, age: str, pet_photo: str) -> json:
         """Метод отправляет (постит) на сервер данные о добавляемом питомце и возвращает статус
                запроса на сервер и результат в формате JSON с данными добавленного питомца"""

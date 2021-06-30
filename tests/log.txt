@@ -1,0 +1,5 @@
+get_api_key, dict_keys(['key'])headers: ('afa91@mail.ru', '1crooka2'), path parametrs: [arg2]string parametrs: [arg3], body: [arg4]############response: [arg5], response body: [arg6]
+get_api_key, dict_keys(['key'])headers: ('afa91@mail.ru', '1crooka2'), path parametrs: [arg2]string parametrs: [arg3], body: [arg4]############response: [arg5], response body: [arg6]
+get_api_key, dict_keys(['key'])headers: ('afa91@mail.ru', '1crooka2'), path parametrs: ()string parametrs: [arg3], body: [arg4]############response: [arg5], response body: [arg6]
+get_list_of_pets, dict_keys(['pets'])headers: ({'key': '176ee05e23f00be693a6a6c43bada547c8a93d1fd175a7314629be38'}, ''), path parametrs: ()string parametrs: [arg3], body: [arg4]############response: [arg5], response body: [arg6]
+get_api_key, dict_keys(['key'])

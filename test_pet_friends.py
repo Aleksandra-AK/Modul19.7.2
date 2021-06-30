@@ -3,6 +3,7 @@ from settings import valid_email, valid_password, invalid_email, invalid_passwor
 import os
 import pytest
 
+
 pf: PetFriends = PetFriends()
 
 
@@ -38,7 +39,6 @@ class Tests:
     def test_post_add_new_pet_with_valid_data(self, name='Куропатыч', animal_type='петух',
                                               age='7', pet_photo='images/giraffe.jpg'):
         """Проверяем что можно добавить питомца с корректными данными"""
-
         # Получаем полный путь изображения питомца и сохраняем в переменную pet_photo
         pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
 
